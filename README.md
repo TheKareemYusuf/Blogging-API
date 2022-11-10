@@ -48,7 +48,6 @@ AltSchool Backend Engineering Second Semester Project
 
 </div>
 
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -108,7 +107,6 @@ AltSchool Backend Engineering Second Semester Project
 
 - [x] Only Blog author can perform the update and delete operation
 
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
