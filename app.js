@@ -31,5 +31,12 @@ app.use("/api/v1/blogs", blogRouter);
 app.use("/api/v1/users", userRouter);
 
 
+app.all('*', (req, res, next) => {
+    res.json({
+        status: 'fail',
+        message: 'unknown endpoint, route does not exist'
+    })
+  });
+
 
 module.exports = app;
