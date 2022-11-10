@@ -205,7 +205,7 @@ This project was made possible by:
 
 - [AltSchool Africa School of Engineering](https://altschoolafrica.com/schools/engineering)
 - [Jonas Schmedtmann](https://codingheroes.io/)
-- [blogolis by Tobi Supreme](https://github.com/tobisupreme)
+- [Tobi Supreme](https://github.com/tobisupreme)
 - [Othneil Drew's README Template](https://github.com/othneildrew/Best-README-Template)
 - [Ileriayo's Markdown Badges](https://github.com/Ileriayo/markdown-badges)
 - [markdown-emojis](https://github.com/markdown-templates/markdown-emojis)
