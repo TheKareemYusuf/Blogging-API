@@ -6,31 +6,31 @@ const blogRouter = require("./routes/blogRoutes");
 const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRoutes");
 
+// Requiring authentication middleware
 require('./authentication/auth')
 
 const app = express();
 
+// Middleware to parse user information
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(bodyParser.json());
 
 
-
+// 
 app.get('/', (req, res) => {
     res.json({
-      status: 'status',
-      message: 'Visit the following link(s) for details about usage',
-      link: '/link to come here',
-      readme: '/readme link here',
+      status: 'Success',
+      message: 'Welcome to Blogging API, kindly visit the following links for information about usage',
+      GitHub_link: 'https://github.com/TheKareemYusuf/Blogging-API',
     })
   })
-// ROUTES
 
+// ROUTES
 app.use("/api/v1/", authRouter);
 app.use("/api/v1/blogs", blogRouter);
 app.use("/api/v1/users", userRouter);
 
-
+// unknown routes/endpoints
 app.all('*', (req, res, next) => {
     res.json({
         status: 'fail',

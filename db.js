@@ -5,6 +5,7 @@ dotenv.config({ path: "./config.env" });
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
+// function to handle database connection
 function connetToMongoDB() {
   mongoose.connect(DATABASE_URL);
 
