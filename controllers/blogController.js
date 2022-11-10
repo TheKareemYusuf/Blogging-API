@@ -81,10 +81,22 @@ const createBlog = async (req, res, next) => {
   }
 };
 
+
+// UPDATE BLOG STATE
 const updateBlogState = async (req, res, next) => {
   try {
     let  state  = req.body.state;
     const id = req.params.id;
+
+    const oldBlog = await Blog.findById(id);
+
+    // Checking if the user attempting to update is the author 
+    if (req.user._id.toString() !== oldBlog.authorId._id.toString()) {
+      return res.status(404).json({
+        status: "fail",
+        message: "You cannot edit as you're not the author",
+      });
+    }
 
     if (
       !(
@@ -117,6 +129,7 @@ const updateBlogState = async (req, res, next) => {
   }
 };
 
+// UPDATE BLOG
 const updateBlog = async (req, res, next) => {
   try {
     let blogUpdate = { ...req.body };
@@ -126,12 +139,12 @@ const updateBlog = async (req, res, next) => {
 
     const oldBlog = await Blog.findById(id);
 
+    // Checking if the user attempting to update is the author
     if (req.user._id.toString() !== oldBlog.authorId._id.toString()) {
       return res.status(404).json({
         status: "fail",
         message: "You cannot edit as you're not the author",
       });
-      // console.log(req.user._id.toString(), oldBlog.authorId._id.toString());
     }
 
     const blog = await Blog.findByIdAndUpdate(id, blogUpdate, {
@@ -161,6 +174,7 @@ const deleteBlog = async (req, res, next) => {
     const id = req.params.id;
     const oldBlog = await Blog.findById(id);
 
+    // Checking if the user attempting to delete is the author 
     if (req.user._id.toString() !== oldBlog.authorId._id.toString()) {
       return res.status(404).json({
         status: "fail",
