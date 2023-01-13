@@ -6,7 +6,10 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(blogController.getAllBlogs)
+  .get(
+    // passport.authenticate("jwt", { session: false }),
+    blogController.getAllBlogs
+  )
   .post(
     passport.authenticate("jwt", { session: false }),
     blogController.createBlog

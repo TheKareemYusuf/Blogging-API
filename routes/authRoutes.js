@@ -15,7 +15,7 @@ authRouter.post(
       message: "Signup successful",
       user: req.user,
     });
-  }
+  } 
 );
 
 authRouter.post("/login", async (req, res, next) => {
